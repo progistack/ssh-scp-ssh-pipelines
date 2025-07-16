@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.12-slim-bullseye
 
 LABEL "maintainer"="Scott Ng <thuongnht@gmail.com>"
 LABEL "repository"="https://github.com/cross-the-world/ssh-scp-ssh-pipelines"
@@ -10,14 +10,10 @@ LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="gray-dark"
 
 RUN apt-get update -y && \
-  apt-get install -y ca-certificates openssh-client openssl sshpass python3-venv
-
-# Création d'un environnement virtuel
-RUN python3 -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+  apt-get install -y ca-certificates openssh-client openssl sshpass
 
 COPY requirements.txt /requirements.txt
-RUN /opt/venv/bin/pip install -r /requirements.txt
+RUN pip3 install -r /requirements.txt
 
 RUN mkdir -p /opt/tools
 
