@@ -1,4 +1,4 @@
-# SSH SCP SSH Pipelines
+# SSH SCP SSH Pipelines action
 
 [Github actions](https://help.github.com/en/actions/creating-actions/creating-a-docker-container-action)
 
