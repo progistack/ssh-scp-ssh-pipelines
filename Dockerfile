@@ -12,8 +12,8 @@ LABEL "com.github.actions.color"="gray-dark"
 RUN apt-get update -y && \
   apt-get install -y ca-certificates openssh-client openssl sshpass
 
-COPY requirements.txt /requirements.txt
-RUN pip3 install -r /requirements.txt
+COPY requirements.txt /mnt/requirements.txt
+RUN pip3 install -r /mnt/requirements.txt
 
 RUN mkdir -p /opt/tools
 
